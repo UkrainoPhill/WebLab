@@ -1,0 +1,56 @@
+header{
+    justify-content: space-between;
+    display: flex;
+    padding: 43px 190px;
+}
+
+nav ul{
+    list-style-type: none;
+    display: flex;
+    gap: 35px;
+}
+
+
+header a{
+    color: #B8BECD;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+}
+
+.login{
+    color: #FB8F1D;
+    font-size: 15px;
+    font-family: Inter, sans-serif;
+    border-radius: 8px;
+    border: 1px solid #FB8F1D;
+    background: inherit;
+    cursor: pointer;
+    padding: 15px 46px;
+    font-weight: 500;
+}
+
+.register{
+    color: #FFFFFF;
+    font-size: 15px;
+    font-family: Inter, sans-serif;
+    cursor: pointer;
+    background: #FB8F1D;
+    border: 1px solid #FB8F1D;
+    border-radius: 8px;
+    padding: 15px 36px;
+    font-weight: 500;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    column-gap: 34px;
+}
+
+.signButtons{
+    display: flex;
+    column-gap: 18px;
+}
+
