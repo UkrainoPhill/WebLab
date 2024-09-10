@@ -15,14 +15,14 @@ header a{
     color: #B8BECD;
     text-decoration: none;
     font-size: 16px;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 500;
 }
 
 .login{
     color: #FB8F1D;
     font-size: 15px;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     border-radius: 8px;
     border: 1px solid #FB8F1D;
     background: inherit;
@@ -34,7 +34,7 @@ header a{
 .register{
     color: #FFFFFF;
     font-size: 15px;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     cursor: pointer;
     background: #FB8F1D;
     border: 1px solid #FB8F1D;

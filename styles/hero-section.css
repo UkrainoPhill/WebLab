@@ -6,7 +6,7 @@
 }
 
 .heroSection h1{
-    font-family: Playfair, serif;
+    font-family: "Playfair", serif;
     font-size: 64px;
     color: #202336;
     line-height: 80px;
@@ -15,7 +15,7 @@
 }
 
 .heroSection h2{
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 22px;
     color: #202336;
     padding: 0 0 21px;
@@ -40,10 +40,11 @@
 .heroSection select{
     border: 1px solid #AFB0B9;
     border-radius: 6px;
-    background: none;
     padding: 0 21px;
     width: 220px;
     height: 52px;
+    appearance: none;
+    background: url("../assets/Bird.svg") no-repeat right 26px center;
 }
 
 .heroSection > img{
@@ -53,7 +54,7 @@
 
 .learnMore{
     padding: 20px 40px;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 16px;
     font-weight: 600;
     color: #FFFFFF;
@@ -61,4 +62,6 @@
     background-color: #FB8F1D;
     border: 1px solid #FB8F1D;
     cursor: pointer;
+    text-decoration: none;
+
 }

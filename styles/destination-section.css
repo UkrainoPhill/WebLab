@@ -1,7 +1,7 @@
 
 .destinationsSection h1{
     font-size: 36px;
-    font-family: Playfair, serif;
+    font-family: "Playfair", serif;
     font-weight: 700;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .destinationsTitle a{
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 600;
     color: #FB8F1D;
     text-decoration: none;
@@ -21,15 +21,18 @@
 }
 
 .elements{
+    padding: 0 240px;
     display: flex;
     column-gap: 25px;
     align-items: center;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .elements img{
     border-radius: 8px;
+    width: 122%;
+    height: auto;
 }
 
 .elements div {
@@ -50,14 +53,14 @@
     border-radius: 0 6px 0 0;
 }
 .elements h4{
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 17px;
     color: #042521;
     font-weight: 600;
 }
 
 .elements p{
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 15px;
     color: #80918E;
     font-weight: 500;

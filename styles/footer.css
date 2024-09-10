@@ -7,8 +7,12 @@ footer{
     justify-content: space-between;
     padding: 31px 191px;
     align-items: center;
+
+}
+
+.footerHead p {
     color: #848484;
-    font-family: Muli, sans-serif;
+    font-family: "Muli", sans-serif;
     font-size: 17px;
     font-weight: 300;
 }
@@ -25,8 +29,8 @@ footer hr{
 
 .footerBot ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 35px;
     list-style-type: none;
-    padding: 33px 644px 41px ;
+    padding: 33px 0 41px ;
 }

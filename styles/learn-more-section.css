@@ -1,5 +1,5 @@
 .explore{
-    font-family: Muli, sans-serif;
+    font-family: "Muli", sans-serif;
     font-weight: 700;
     font-size: 17px;
     border: 1px solid #FB8F1D;
@@ -23,7 +23,7 @@
 }
 
 .learnMoreSection h1{
-    font-family: Playfair, serif;
+    font-family: "Playfair", serif;
     font-size: 36px;
     font-weight: 700;
     max-width: 80%;
@@ -33,8 +33,8 @@
 .learnMoreSection p{
     color: #7D7987;
     font-size: 17px;
-    font-family: Muli, sans-serif;
+    font-family: "Muli", sans-serif;
     font-weight: 30;
     max-width: 77.5%;
-    padding: 0 0 33px;
+    padding: 0 0 40px;
 }
