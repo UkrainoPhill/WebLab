@@ -34,3 +34,15 @@ footer hr{
     list-style-type: none;
     padding: 33px 0 41px ;
 }
+
+@media screen and (max-width: 1100px) {
+    .footerHead p{
+        font-size: clamp(0.625rem, 0.313rem + 0.833vw, 1.063rem);
+    }
+    .footerHead{
+        padding: 31px clamp(1.25rem, -6.339rem + 20.238vw, 11.875rem);
+    }
+    footer hr{
+        margin: 0 clamp(1.563rem, -5.804rem + 19.643vw, 11.875rem)
+    }
+}

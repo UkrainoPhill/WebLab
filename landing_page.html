@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header id="header">
         <img src="assets/logo.svg" alt="logo">
-        <nav>
+        <nav id="nav">
             <ul>
-                <li><a href="#" style=color:#202336>Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#">Destinations</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Partner</a></li>
@@ -21,7 +21,13 @@
                 <a class="register" href="#">Register</a>
             </div>
         </nav>
+        <div class="hamburger" id="hamburger">
+            <div id="line1"></div>
+            <div id="line2"></div>
+            <div id="line3"></div>
+        </div>
     </header>
+    <div id="container"></div>
     <main>
         <section class="heroSection">
             <div>
@@ -71,30 +77,30 @@
                 <a href="#">View all <img src="assets/Vector%201.svg" alt="arrow"></a>
             </div>
             <div class="elements">
-                <div class="RajaAmpatIndonesia">
+                <div class="element">
                     <img src="assets/RajaAmpatIndonesia.svg" alt="RajaAmpatIndonesia">
-                    <div class="RajaApmatText">
+                    <div class="elementText">
                         <h4>Raja Ampat </h4>
                         <p>Indonesia</p>
                     </div>
                 </div>
-                <div class="FanjingshanChina">
+                <div class="element">
                     <img src="assets/FanjingshanChina.svg" alt="FanjingshanChina">
-                    <div class="FanjingshanText">
+                    <div class="elementText">
                         <h4>Fanjingshan</h4>
                         <p>China</p>
                     </div>
                 </div>
-                <div class="VeveySwitzerland">
+                <div class="element">
                     <img src="assets/VeveySwitzerland.svg" alt="VeveySwitzerland">
-                    <div class="VeveyText">
+                    <div class="elementText">
                         <h4>Vevey</h4>
                         <p>Switzerland</p>
                     </div>
                 </div>
-                <div class="SkadarMontenegro">
+                <div class="element">
                     <img src="assets/SkadarMontenegro.svg" alt="SkadarMontenegro">
-                    <div class="SkadarText">
+                    <div class="elementText">
                         <h4>Skadar</h4>
                         <p>Montenegro</p>
                     </div>
@@ -138,5 +144,6 @@
             </ul>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
