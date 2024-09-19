@@ -122,7 +122,8 @@
     .explore {
         display: flex;
         align-items: center;
-        margin: 0 auto 0;
+        width: 100%;
+        justify-content: center;
     }
 
     .heroSection > img {

@@ -103,10 +103,12 @@ nav{
     }
     nav{
         display: none;
+        gap:10px;
     }
     a{
         text-decoration: none;
         color: #B8BECD;
+        font-family: "Inter", sans-serif;
     }
     li a:hover{
         color: black;
@@ -115,19 +117,19 @@ nav{
         padding: 43px 15%;
     }
     .signButtons{
-        gap: 10px;
+        gap: 20px;
         flex-direction: column;
     }
 }
 
 @media screen and (max-width: 500px) {
     li a{
-        font-size: 13px;
+        font-size: 14px;
     }
     .login{
-        font-size: 12px;
+        font-size: 14px;
     }
     .register{
-        font-size: 12px;
+        font-size: 14px;
     }
 }

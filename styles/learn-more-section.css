@@ -75,7 +75,7 @@
         font-size: clamp(1.563rem, 1.339rem + 0.595vw, 1.875rem);
     }
     .learnMoreSection p{
-        font-size: clamp(0.813rem, 0.634rem + 0.476vw, 1.063rem);
+        font-size: clamp(0.938rem, 0.848rem + 0.238vw, 1.063rem)
     }
     .learnMoreSection div{
         max-width: 100%;
@@ -85,7 +85,7 @@
         text-align: center;
     }
     .learnMore{
-        font-size: clamp(0.75rem, 0.571rem + 0.476vw, 1rem);
+        font-size: clamp(1.25rem, 0.536rem + 1.905vw, 2.25rem);
     }
 }
 
@@ -98,10 +98,5 @@
         width: 300px;
         height: auto;
     }
-    .learnMoreSection h1{
-        font-size: clamp(1.063rem, 0.929rem + 0.357vw, 1.25rem);
-    }
-    .learnMoreSection p{
 
-    }
 }

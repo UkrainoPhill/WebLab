@@ -119,11 +119,12 @@
     }
     .destinationsSection h1{
         font-size: clamp(1.625rem, 1.179rem + 1.19vw, 2.25rem);
+        width: 50%;
     }
     .destinationsSection a{
-        font-size: clamp(0.938rem, 0.848rem + 0.238vw, 1.063rem);
+        font-size: clamp(0.875rem, 0.741rem + 0.357vw, 1.063rem);
     }
     .destinationsTitle{
-        padding: 100px 10%;
+        padding: 80px 5%;
     }
 }
