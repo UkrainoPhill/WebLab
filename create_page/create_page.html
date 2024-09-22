@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thousand Sunny</title>
+  <link rel="stylesheet" href="create_page.css">
+</head>
+<body>
+<header id="header">
+  <img src="../assets/logo.svg" alt="logo">
+  <nav id="nav">
+    <ul>
+      <li><a href="../landing_page/landing_page.html">Home</a></li>
+      <li><a href="../read_page/read_page.html">Destinations</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Partner</a></li>
+    </ul>
+    <div class="signButtons">
+      <a class="login" href="#">Login</a>
+      <a class="register" href="#">Register</a>
+    </div>
+  </nav>
+  <div class="hamburger" id="hamburger">
+    <div id="line1"></div>
+    <div id="line2"></div>
+    <div id="line3"></div>
+  </div>
+</header>
+<div id="container"></div>
+<main>
+    <section class="create-section">
+        <h1>Create destination</h1>
+        <form onsubmit="return false">
+            <label>
+                <span>Title</span>
+                <input type="text" placeholder="Text..." class="title-create-input" maxlength="25" id="title">
+            </label>
+            <label>
+                <span>Description</span>
+                <textarea class="description-create-input" id="description"></textarea>
+            </label>
+            <label>
+                <span>Price ($)</span>
+                <input id="price" type="number" min="0" placeholder="Number..." class="price-create-input">
+            </label>
+            <label>
+                <input type="file" id="create-input-image">
+            </label>
+            <label>
+                <button class="submit-create-button" type="submit" id="submit-create-button">Submit</button>
+            </label>
+        </form>
+        </section>
+</main>
+<footer>
+  <div class="footerHead">
+    <img src="../assets/logo.svg" alt="logo">
+    <p>©2020 Thousand Sunny. All rights reserved</p>
+  </div>
+  <hr>
+  <div class="footerBot">
+    <ul>
+      <li>
+        <a href="https://www.x.com">
+          <img src="../assets/Twitter.svg" alt="Twitter">
+        </a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com">
+          <img src="../assets/Facebook.svg" alt="Facebook">
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com">
+          <img src="../assets/Instagram.svg" alt="Instagram">
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com">
+          <img src="../assets/LinkedIn.svg" alt="LinkedIn">
+        </a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com">
+          <img src="../assets/YouTube.svg" alt="YouTube">
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+<script src="create_page.js" type="module"></script>
+<script src="../scripts/header.js"></script>
+</body>
+</html>

@@ -56,15 +56,14 @@ textarea:focus, input:focus{
     outline: none;
 }
 
-.create a{
+.create button{
     border: 1px solid darkolivegreen;
     background: none;
     border-radius: 6px;
     font-size: 15px;
-    padding: 15px 46px;
+    padding: 15px 45px;
     color: darkolivegreen;
     font-family: "Inter", sans-serif;
-    width: 50%;
     cursor: pointer;
     text-decoration: none;
 }

@@ -1,9 +1,6 @@
 @import "../styles/header.css";
 @import "../styles/footer.css";
-@import "../styles/section-menu.css";
-@import "../styles/section-items.css";
 @import "../styles/create-section.css";
-@import "../styles/edit-section.css";
 
 @font-face {
     font-family: 'Muli';
