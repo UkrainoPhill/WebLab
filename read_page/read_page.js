@@ -148,7 +148,7 @@ function create_element(){
             return;
         }
     }
-    let id = data_array[data_array.length - 1].id;
+    let id = (data_array[data_array.length - 1].id/1) + 1;
     let last_updated = new Date().toDateString().split(" ").slice(1, 4);
     console.log(last_updated);
     const new_destination = new destination(id, img_src, title, description, price, last_updated);
