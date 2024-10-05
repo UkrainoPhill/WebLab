@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLabBackend.Api", "WebLabBackend.Api\WebLabBackend.Api.csproj", "{E98DF86C-1CD3-4AAF-B833-3AAA54B5EC51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLabBackend.Core", "WebLabBackend.Core\WebLabBackend.Core.csproj", "{44A71479-DE91-4309-BE37-AFA45EA66956}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLabBackend.Persistence", "WebLabBackend.Persistence\WebLabBackend.Persistence.csproj", "{AE05ABDD-BFED-4F3D-8598-02E794F81122}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLabBackend.Application", "WebLabBackend.Application\WebLabBackend.Application.csproj", "{8AD93551-B048-4E3D-BECD-27B9383A6B67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLabBackend.Infrastructure", "WebLabBackend.Infrastructure\WebLabBackend.Infrastructure.csproj", "{68B08230-1F19-4B56-A2DA-1F7FA02BF7DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLabBackend.Test", "WebLabBackend.Test\WebLabBackend.Test.csproj", "{0F67EDDA-35AC-4A8D-ACE4-E7EC69CF0EE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E98DF86C-1CD3-4AAF-B833-3AAA54B5EC51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E98DF86C-1CD3-4AAF-B833-3AAA54B5EC51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E98DF86C-1CD3-4AAF-B833-3AAA54B5EC51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E98DF86C-1CD3-4AAF-B833-3AAA54B5EC51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44A71479-DE91-4309-BE37-AFA45EA66956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A71479-DE91-4309-BE37-AFA45EA66956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A71479-DE91-4309-BE37-AFA45EA66956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A71479-DE91-4309-BE37-AFA45EA66956}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE05ABDD-BFED-4F3D-8598-02E794F81122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE05ABDD-BFED-4F3D-8598-02E794F81122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE05ABDD-BFED-4F3D-8598-02E794F81122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE05ABDD-BFED-4F3D-8598-02E794F81122}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AD93551-B048-4E3D-BECD-27B9383A6B67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AD93551-B048-4E3D-BECD-27B9383A6B67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AD93551-B048-4E3D-BECD-27B9383A6B67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AD93551-B048-4E3D-BECD-27B9383A6B67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68B08230-1F19-4B56-A2DA-1F7FA02BF7DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68B08230-1F19-4B56-A2DA-1F7FA02BF7DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68B08230-1F19-4B56-A2DA-1F7FA02BF7DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68B08230-1F19-4B56-A2DA-1F7FA02BF7DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F67EDDA-35AC-4A8D-ACE4-E7EC69CF0EE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F67EDDA-35AC-4A8D-ACE4-E7EC69CF0EE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F67EDDA-35AC-4A8D-ACE4-E7EC69CF0EE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F67EDDA-35AC-4A8D-ACE4-E7EC69CF0EE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
