@@ -1,9 +1,10 @@
 ## Лабораторні роботи з дисципліни "Вебтехнології та вебдизайн"
 
 ### Виконав: Романчак Данило Ігорович (ІР-21)
-### Лабораторна робота №3 (Варіант 2)
+### Лабораторна робота №4 (Варіант 2)
 
-#### CRUD Javascript App: Create/Edit Pages
+#### CRUD Javascript App: Backend
 
-Description: In this work, you need to continue working and add two new
-parts to your website
+Description: In the last part of working on the website you have to 
+implement all Create/Read/Update/Delete operations which must be made 
+via the corresponding HTTP methods in your REST API.
