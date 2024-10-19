@@ -1,0 +1,7 @@
+.holidayFinder {
+    display: grid;
+    padding: 48px 0;
+    grid-template-columns: 1fr 1fr;
+    width: fit-content;
+    gap: 30px;
+}

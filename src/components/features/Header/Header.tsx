@@ -1,6 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import logo from './images/logo.svg';
 import './Header.css';
+import PrimaryButton from '../../common/PrimaryButton/PrimaryButton'
+import SecondaryButton from "../../common/SecondaryButton/SecondaryButton";
+import {Link} from "react-router-dom";
 
 const Header = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -102,14 +105,14 @@ const Header = () => {
                 <img src={logo} alt="logo" />
                 <nav ref={navRef}>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Destinations</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/catalog">Destinations</Link></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Partner</a></li>
                     </ul>
                     <div className="signButtons">
-                        <a className="login" href="#">Login</a>
-                        <a className="register" href="#">Register</a>
+                        <PrimaryButton link={"#"} name={"Login"}/>
+                        <SecondaryButton link={"#"} name={"Register"}/>
                     </div>
                 </nav>
                 <div className="hamburger" ref={hamburgerRef} onClick={burgerExpand}>

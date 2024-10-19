@@ -1,0 +1,9 @@
+.select {
+    border: 1px solid #AFB0B9;
+    border-radius: 6px;
+    padding: 0 21px;
+    width: 220px;
+    height: 52px;
+    appearance: none;
+    background: url("images/Bird.svg") no-repeat right 26px center;
+}

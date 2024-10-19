@@ -1,5 +1,5 @@
 .heroSection{
-    padding: 0 189px 175px;
+    padding: 0 189px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,43 +29,11 @@
     margin-left: 0;
 }
 
-.heroSection label{
-    display: grid;
-    padding: 48px 0;
-    grid-template-columns: 1fr 1fr;
-    width: fit-content;
-    gap: 30px;
-}
 
-.heroSection select{
-    border: 1px solid #AFB0B9;
-    border-radius: 6px;
-    padding: 0 21px;
-    width: 220px;
-    height: 52px;
-    appearance: none;
-    background: url("./images/Bird.svg") no-repeat right 26px center;
-}
+
 
 .heroSection > img{
     padding: 0 0 0 105px;
-}
-
-.explore{
-    font-family: "Muli", sans-serif;
-    font-weight: 700;
-    font-size: 17px;
-    border: 1px solid #FB8F1D;
-    border-radius: 8px;
-    padding: 20px 60px;
-    background-color: #FB8F1D;
-    color: #FFFFFF;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-.explore:active{
-    transform: scale(0.9);
 }
 
 @media screen and (max-width: 2560px) {

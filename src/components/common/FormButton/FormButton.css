@@ -1,0 +1,16 @@
+.formButton {
+    font-family: "Muli", sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    border: 1px solid #FB8F1D;
+    border-radius: 8px;
+    padding: 20px 60px;
+    background-color: #FB8F1D;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.formButton:active{
+    transform: scale(0.9);
+}
