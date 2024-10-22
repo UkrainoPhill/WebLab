@@ -33,8 +33,9 @@
 
 .elements{
     padding: 0 240px;
-    display: flex;
-    column-gap: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 25px;
     align-items: center;
     flex-direction: row;
     justify-content: space-between;

@@ -3,36 +3,47 @@ import Menu from "../../features/Menu/Menu";
 import CatalogSection from "../../features/CatalogSection/CatalogSection";
 import './Catalog.css';
 import CreateModal from "../../enities/CreateModal/CreateModal";
-import { Destination, destinations as initialDestinations } from "../../assets/utils/Destination";
+import { Destination } from "../../assets/utils/Destination";
 import UpdateModal from "../../enities/UpdateModal/UpdateModal";
+import {useDestination} from "../../context/DestinationContext";
+import catalogSection from "../../features/CatalogSection/CatalogSection";
 
 const Catalog = () => {
-    const [destinations, setDestinations] = useState<Destination[]>(initialDestinations);
+    const [searchOptions, setSearchOptions] = useState<{ term: string, sort: string, price: number, rating: number, country: string }>({ term: '', sort: 'price', price: 0, rating: 0, country: '' });
     const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
+    const { destinations, setDestination  } = useDestination();
+
 
     const deleteDestination = (id: string) => {
-        setDestinations(destinations.filter(destination => destination.id !== id));
+        setDestination(destinations.filter(destination => destination.id !== id));
     };
 
     const createDestination = (destination: Destination) => {
-        if (destinations.some(value => value.id === destination.id)) {
+        const maxId = destinations.length > 0 ? Math.max(...destinations.map(destination => parseInt(destination.id))) : 0;
+        destination.id =  (maxId + 1).toString();
+        if (destinations.find(someDestination => someDestination.title === destination.title)){
+            alert("Same title already exists");
             return;
         }
-        if (!destination.title || !destination.image || !destination.price || !destination.description){
+        if (!destination.title || !destination.image || !destination.price || !destination.description) {
             alert("Missing data");
             return;
         }
-        setDestinations([...destinations, destination]);
+        setDestination([...destinations, destination]);
     };
 
     const updateDestination = (destination: Destination) => {
+        if (destinations.find(someDestination => someDestination.title === destination.title && someDestination.id !== destination.id)){
+            alert("Same title already exists");
+            return;
+        }
         const updatedDestinations = destinations.map(oldDestination => {
             if (oldDestination.id === destination.id) {
                 return { ...oldDestination, ...destination };
             }
             return oldDestination;
         });
-        setDestinations(updatedDestinations);
+        setDestination(updatedDestinations);
     };
 
     const [createModal, setCreateModal] = useState(false);
@@ -58,7 +69,7 @@ const Catalog = () => {
 
     return (
         <div className={"catalogBody"}>
-            <Menu onCreateModal={handleCreateModal} />
+            <Menu onCreateModal={handleCreateModal} setSearchOptions={setSearchOptions}  />
             {createModal && <CreateModal onClose={handleCloseCreateModal} onCreate={createDestination} />}
             {updateModal && selectedDestination && (
                 <UpdateModal
@@ -67,7 +78,7 @@ const Catalog = () => {
                     destination={selectedDestination}
                 />
             )}
-            <CatalogSection onDelete={deleteDestination} destinations={destinations} onUpdateModal={handleUpdateModal}/>
+            <CatalogSection onDelete={deleteDestination} destinations={destinations} onUpdateModal={handleUpdateModal} setSearchOptions={setSearchOptions} searchOptions={searchOptions}/>
         </div>
     );
 };

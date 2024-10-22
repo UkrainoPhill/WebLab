@@ -14,7 +14,7 @@ export class Destination {
     lastUpdated: string = "";
 }
 
-export const destinations: Array<Destination> = [{
+export const destinationsData: Array<Destination> = [{
     id: "1",
     image: Fajingshan,
     title: "Fanjingshan, China",

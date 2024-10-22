@@ -13,6 +13,8 @@ const UpdateModal: FC<UpdateModalProps> = ({ onClose, onUpdate, destination }) =
     const [description, setDescription] = useState(destination.description);
     const [price, setPrice] = useState(destination.price);
     const [image, setImage] = useState<File | null>(null);
+    const [continent, setContinent] = useState('');
+
 
     useEffect(() => {
         console.log('UpdateModal destination prop:', destination);
@@ -34,10 +36,10 @@ const UpdateModal: FC<UpdateModalProps> = ({ onClose, onUpdate, destination }) =
             title,
             description,
             price,
+            continent,
             image: image ? URL.createObjectURL(image) : destination.image,
             lastUpdated: new Date().toISOString()
         };
-        console.log('Updated destination:', updatedDestination);
         onUpdate(updatedDestination);
         onClose();
     };
@@ -83,6 +85,20 @@ const UpdateModal: FC<UpdateModalProps> = ({ onClose, onUpdate, destination }) =
                             />
                         </label>
                         <label>
+                            <span>Continent</span>
+                            <select className={"continent-create-input"} value={continent}
+                                    onChange={(e) => setContinent(e.target.value)}>
+                                <option value={''} hidden={true} disabled={true}>Select Continent... </option>
+                                <option value="Asia">Asia</option>
+                                <option value="Europe">Europe</option>
+                                <option value="Africa">Africa</option>
+                                <option value="North America">North America</option>
+                                <option value="South America">South America</option>
+                                <option value="Antarctica">Antarctica</option>
+                                <option value="Australia">Australia</option>
+                            </select>
+                        </label>
+                        <label>
                             <input
                                 type="file"
                                 id="image-edit-modal"
@@ -92,7 +108,8 @@ const UpdateModal: FC<UpdateModalProps> = ({ onClose, onUpdate, destination }) =
                             <button type="reset">Clear</button>
                         </label>
                         <label>
-                            <button className="create-modal-button" type="submit" id="submit-edit-button">Submit</button>
+                            <button className="create-modal-button" type="submit" id="submit-edit-button">Submit
+                            </button>
                         </label>
                     </form>
                 </div>

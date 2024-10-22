@@ -10,7 +10,7 @@ interface SelectProps {
 const Select: React.FC<SelectProps> = (props) => {
     return (
         <select className={"select"} defaultValue="" onChange={props.onChange}>
-            <option value="" disabled hidden>{props.name}</option>
+            <option value="" >{props.name}</option>
             {props.options.map((value, index) => (
                 <option key={index} value={value}>{value}</option>
             ))}

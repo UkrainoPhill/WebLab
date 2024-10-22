@@ -36,8 +36,8 @@
 
 .element img{
     border-radius: 8px;
-    width: 100%;
-    height: auto;
+    width: 500px;
+    height: 637px;
     transition: 0.5s ease-in-out;
     z-index: 1;
 }

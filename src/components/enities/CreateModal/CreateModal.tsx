@@ -23,16 +23,15 @@ const CreateModal: FC<CreateModalProps> = (props) => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const newDestination: Destination = {
-            id: Date.now().toString(),
+            id: "",
             image: image ? URL.createObjectURL(image) : '',
             title,
             description,
             price,
             continent,
-            rate: 1,
+            rate: (Math.floor(Math.random() * (5 - 1 + 1)) + 1),
             lastUpdated: new Date().toISOString()
         };
-        console.log(newDestination)
         props.onCreate(newDestination);
         props.onClose();
     };
@@ -81,6 +80,7 @@ const CreateModal: FC<CreateModalProps> = (props) => {
                             <span>Continent</span>
                             <select className={"continent-create-input"} value={continent}
                                     onChange={(e) => setContinent(e.target.value)}>
+                                <option value={''} hidden={true} disabled={true}>Select Continent...</option>
                                 <option value="Asia">Asia</option>
                                 <option value="Europe">Europe</option>
                                 <option value="Africa">Africa</option>

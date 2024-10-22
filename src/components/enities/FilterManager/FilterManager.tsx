@@ -3,17 +3,16 @@ import Select from "../../common/Select/Select";
 import './FilterManager.css';
 
 interface FilterManagerProps {
-    onFilterChange: (filters: { continent: string, rate: number, price: number }) => void;
+    setSearchOptions: React.Dispatch<React.SetStateAction<{
+        term: string,
+        sort: string,
+        price: number,
+        rating: number,
+        country: string
+    }>>,
 }
 
-const FilterManager: React.FC<FilterManagerProps> = ({ onFilterChange }) => {
-    const [continent, setContinent] = useState('');
-    const [rate, setRate] = useState(0);
-    const [price, setPrice] = useState(0);
-
-    const handleFilterChange = () => {
-        onFilterChange({ continent, rate, price });
-    };
+const FilterManager: React.FC<FilterManagerProps> = (props) => {
 
     return (
         <div>
@@ -22,17 +21,26 @@ const FilterManager: React.FC<FilterManagerProps> = ({ onFilterChange }) => {
                 <Select
                     name={"Continents"}
                     options={["Asia", "Europe", "Africa", "North America", "South America", "Antarctica", "Australia"]}
-                    onChange={(e) => { setContinent(e.target.value); handleFilterChange(); }}
+                    onChange={(e) => { props.setSearchOptions(prevState => ({
+                        ...prevState,
+                        country: e.target.value
+                    }));}}
                 />
                 <Select
                     name={"Rate"}
                     options={["1", "2", "3", "4", "5"]}
-                    onChange={(e) => { setRate(parseInt(e.target.value)); handleFilterChange(); }}
+                    onChange={(e) => { props.setSearchOptions(prevState => ({
+                        ...prevState,
+                        rating: parseInt(e.target.value)
+                    }));}}
                 />
                 <Select
                     name={"Price"}
-                    options={["0-500", "500-1000", "1000-1500", "1500-2000", "2000+"]}
-                    onChange={(e) => { setPrice(parseInt(e.target.value)); handleFilterChange(); }}
+                    options={["500", "1000", "1500", "2000"]}
+                    onChange={(e) => { props.setSearchOptions(prevState => ({
+                        ...prevState,
+                        price: parseInt(e.target.value)
+                    }));}}
                 />
             </form>
         </div>
