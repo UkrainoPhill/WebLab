@@ -1,0 +1,15 @@
+.filter-manager{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    label{
+        font-size: 21px;
+        font-family: "Inter", sans-serif;
+        color: #202336;
+        padding: 0 20px 0 0;
+        font-weight: 600;
+        width: 50%;
+    }
+}

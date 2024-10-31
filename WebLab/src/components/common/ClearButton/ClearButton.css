@@ -1,0 +1,11 @@
+.clear{
+    padding: 15px 46px;
+    border: 1px solid indianred;
+    border-radius: 8px;
+    font-size: 15px;
+    background: none;
+    color: indianred;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+}

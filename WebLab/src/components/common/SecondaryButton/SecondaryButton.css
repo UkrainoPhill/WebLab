@@ -1,0 +1,17 @@
+.secondaryButton {
+    color: #FB8F1D;
+    font-size: 15px;
+    font-family: "Inter", sans-serif;
+    border-radius: 8px;
+    border: 1px solid #FB8F1D;
+    background: inherit;
+    cursor: pointer;
+    padding: 15px 46px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+.secondaryButton:active{
+    transform: scale(0.9);
+}

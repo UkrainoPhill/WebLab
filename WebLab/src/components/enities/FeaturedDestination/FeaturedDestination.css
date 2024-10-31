@@ -1,0 +1,61 @@
+
+.element{
+    overflow: hidden;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.element :hover{
+    transform: scale(1.25);
+    z-index: 10;
+}
+
+.element:hover .elementText{
+    opacity: 0;
+}
+
+.elementText{
+    opacity: 100;
+    transition: 0.2s ease-in-out;
+}
+
+.elementText{
+    position: absolute;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+
+    padding: 4px 20px 0 0;
+    border-radius: 0 6px 0 0;
+}
+
+.element img{
+    border-radius: 8px;
+    width: 500px;
+    height: 637px;
+    transition: 0.5s ease-in-out;
+    z-index: 1;
+}
+
+.element {
+    position: relative;
+}
+
+.element h4{
+    font-family: "Inter", sans-serif;
+    font-size: 17px;
+    color: #042521;
+    font-weight: 600;
+}
+
+.element p{
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    color: #80918E;
+    font-weight: 500;
+}

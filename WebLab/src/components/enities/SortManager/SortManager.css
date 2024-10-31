@@ -1,0 +1,23 @@
+
+.sort-div h1{
+    font-size: 36px;
+    font-family: "Playfair", serif;
+    font-weight: 700;
+    color: #202336;
+    padding: 0 0 40px 0;
+}
+
+.sort-div label{
+    font-size: 21px;
+    font-family: "Inter", sans-serif;
+    color: #202336;
+    padding: 0 20px 0 0;
+    font-weight: 600;
+    width: 50%;
+}
+
+.sort-div form{
+    display: flex;
+    align-items: center;
+    padding: 0 0 20px 0;
+}
