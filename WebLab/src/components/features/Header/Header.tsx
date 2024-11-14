@@ -107,8 +107,7 @@ const Header = () => {
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/catalog">Destinations</Link></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Partner</a></li>
+                        <li><Link to="/cart">Cart</Link></li>
                     </ul>
                     <div className="signButtons">
                         <PrimaryButton link={"#"} name={"Login"}/>

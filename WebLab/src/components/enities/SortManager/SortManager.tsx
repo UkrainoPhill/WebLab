@@ -1,13 +1,17 @@
 import React, {FC} from 'react';
 import Select from "../../common/Select/Select";
 import './SortManager.css'
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState, setSearchOption} from "../../../store";
 
 
-interface SortManagerProps{
-    setSearchOptions: React.Dispatch<React.SetStateAction<{ search?: string, sort?: string, price?: number, rate?: number, continent?: number, id?: string }>>;
-}
+const SortManager: FC = () => {
+    const {searchOptions} = useSelector((state: RootState) => state.destinationReducer);
+    const dispatch = useDispatch<AppDispatch>();
 
-const SortManager: FC<SortManagerProps> = (props) => {
+    const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        dispatch(setSearchOption({ ...searchOptions, sort: e.target.value === "undefined" ? '' : e.target.value }));
+    };
     const sort: Array<[string, string]> = [
         ["Price (0-99+)", "price_asc"],
         ["Price (99+-0)", "price_desc"],
@@ -18,10 +22,7 @@ const SortManager: FC<SortManagerProps> = (props) => {
             <h1>Manage Destinations</h1>
             <form>
                 <label htmlFor="sort"> Sort by: </label>
-                <Select name={"Choose one..."} options={sort} onChange={e => { props.setSearchOptions(prevState => ({
-                    ...prevState,
-                    sort: (e.target.value === "undefined") ? '' : e.target.value,
-                }));}}/>
+                <Select name={"Choose one..."} options={sort} onChange={handleSortChange}/>
             </form>
         </div>
     );

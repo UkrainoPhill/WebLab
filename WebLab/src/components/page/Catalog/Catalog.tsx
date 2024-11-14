@@ -7,16 +7,19 @@ import {Destination} from "../../assets/utils/Destination";
 import UpdateModal from "../../enities/UpdateModal/UpdateModal";
 import DestinationServices from "../../../services/DestinationServices";
 import {DestinationDto} from "../../assets/utils/DestinationDto";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, getDestinations, RootState, setSearchOption} from "../../../store";
 
 const Catalog = () => {
-    const [searchOptions, setSearchOptions] = useState<{ search?: string, sort?: string, price?: number,  rate?: number , continent?: number, id?: string}>({ search: '', sort: '', price: undefined, rate: undefined, continent: undefined, id: ''});
     const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
-    const [filteredDestinations, setFilteredDestinations] = useState<Destination[]>([]);
 
-    const fetchDestinations = useCallback(async () => {
-        const { data } = await DestinationServices.getDestinations(searchOptions);
-        setFilteredDestinations(data);
-    }, [searchOptions])
+    const {
+        destination,
+        searchOptions,
+        status
+    } = useSelector((state: RootState) => state.destinationReducer);
+
+    const dispatch = useDispatch<AppDispatch>();
 
     const createDestination = async (destination: Destination) => {
         if(!destination.title || !destination.description || !destination.price) {
@@ -31,19 +34,19 @@ const Catalog = () => {
                 title: destination.title
             };
             await DestinationServices.createDestination(destinationDto);
-            await fetchDestinations();
+            await dispatch(getDestinations(searchOptions));
         } catch (e) {
             alert("This entity exist")
         }
     };
 
     useEffect(() => {
-        fetchDestinations();
-    }, [fetchDestinations, searchOptions]);
+        dispatch(getDestinations(searchOptions));
+    }, [dispatch, searchOptions]);
 
     const deleteDestination = async (id: string) => {
         await DestinationServices.deleteDestination(id);
-        await fetchDestinations();
+        await dispatch(getDestinations(searchOptions));
     };
 
     const updateDestination = async (destination: Destination) => {
@@ -58,7 +61,7 @@ const Catalog = () => {
             title: destination.title
         };
         await DestinationServices.updateDestination(destination.id, destinationDto);
-        await fetchDestinations();
+        await dispatch(getDestinations(searchOptions));
     };
 
     const [createModal, setCreateModal] = useState(false);
@@ -84,7 +87,7 @@ const Catalog = () => {
 
     return (
         <div className={"catalogBody"}>
-            <Menu onCreateModal={handleCreateModal} setSearchOptions={setSearchOptions}  />
+            <Menu onCreateModal={handleCreateModal}/>
             {createModal && <CreateModal onClose={handleCloseCreateModal} onCreate={createDestination} />}
             {updateModal && selectedDestination && (
                 <UpdateModal
@@ -93,7 +96,7 @@ const Catalog = () => {
                     destination={selectedDestination}
                 />
             )}
-            <CatalogSection onDelete={deleteDestination} onUpdateModal={handleUpdateModal} setSearchOptions={setSearchOptions} searchOptions={searchOptions} filteredDestinations={filteredDestinations}/>
+            <CatalogSection onDelete={deleteDestination} onUpdateModal={handleUpdateModal} filteredDestinations={destination || []}/>
         </div>
     );
 };

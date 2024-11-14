@@ -1,14 +1,12 @@
 import React from 'react';
 import Select from "../../common/Select/Select";
 import './FilterManager.css';
+import {AppDispatch, RootState, setSearchOption} from "../../../store";
+import {useDispatch, useSelector} from "react-redux";
 
-interface FilterManagerProps {
-    setSearchOptions: React.Dispatch<React.SetStateAction<{ search?: string, sort?: string, price?: number, rate?: number, continent?: number, id?: string }>>;
-
-}
-
-const FilterManager: React.FC<FilterManagerProps> = (props) => {
-
+const FilterManager: React.FC = () => {
+    const dispatch = useDispatch<AppDispatch>();
+    const {searchOptions} = useSelector((state: RootState) => state.destinationReducer);
     return (
         <div>
             <form className={'filter-manager'}>
@@ -24,10 +22,7 @@ const FilterManager: React.FC<FilterManagerProps> = (props) => {
                         ["Antarctica", 6],
                         ["Australia", 5]
                     ]}
-                    onChange={(e) => { props.setSearchOptions(prevState => ({
-                        ...prevState,
-                        continent: isNaN(parseInt(e.target.value)) ? undefined : parseInt(e.target.value)
-                    }));}}
+                    onChange={(e) => {dispatch(setSearchOption({...searchOptions, continent: isNaN(parseInt(e.target.value)) ? undefined : parseInt(e.target.value)}))}}
                 />
                 <Select
                     name={"Rate"}
@@ -38,10 +33,7 @@ const FilterManager: React.FC<FilterManagerProps> = (props) => {
                         ["4", 4],
                         ["5", 5]
                     ]}
-                    onChange={(e) => { props.setSearchOptions(prevState => ({
-                        ...prevState,
-                        rate: isNaN(parseInt(e.target.value)) ? undefined : parseInt(e.target.value)
-                    }));}}
+                    onChange={(e) => {dispatch(setSearchOption({...searchOptions, rate: isNaN(parseInt(e.target.value)) ? undefined : parseInt(e.target.value)}))}}
                 />
                 <Select
                     name={"Price"}
@@ -51,11 +43,8 @@ const FilterManager: React.FC<FilterManagerProps> = (props) => {
                         ["1500", 1500],
                         ["2000", 2000]
                     ]}
-                    onChange={(e) => { props.setSearchOptions(prevState => (
-                        {
-                        ...prevState,
-                        price: isNaN(parseInt(e.target.value)) ? undefined : parseInt(e.target.value)
-                    }));}}
+                    onChange={(e) => {dispatch(setSearchOption({...searchOptions, price: isNaN(parseInt(e.target.value)) ? undefined : parseInt(e.target.value)}))}}
+
                 />
             </form>
         </div>

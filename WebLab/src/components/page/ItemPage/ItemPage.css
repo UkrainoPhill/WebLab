@@ -55,22 +55,45 @@
                 font-family: "Muli", serif;
                 font-weight: 600;
             }
+            .select-item-page{
+                display: flex;
+                gap: 20px;
+                .input-number-item-page{
+                    border: 1px solid #AFB0B9;
+                    border-radius: 6px;
+                    padding: 0 21px;
+                    width: 220px;
+                    height: 52px;
+                }
+            }
         }
     }
     .navigation-item-page{
-        border:1px solid cornflowerblue ;
-        border-radius: 10px;
         justify-content: end;
         margin-top: 50%;
         margin-left: 70%;
         display: flex;
-        padding: 10px 20px;
-        width: fit-content;
+        gap: 20px;
         .go-back-button{
+            border-radius: 10px;
+            border:1px solid cornflowerblue ;
+            padding: 10px 20px;
+            width: fit-content;
             color: cornflowerblue;
             text-decoration: none;
             font-weight: 600;
             font-size: 20px;
+        }
+        .create_button-cart{
+            border-radius: 10px;
+            border:1px solid darkseagreen ;
+            color: darkseagreen;
+            background: none;
+            padding: 0 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 20px;
+            cursor: pointer;
         }
     }
 }

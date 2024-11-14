@@ -7,11 +7,9 @@ import {DestinationDto} from "../components/assets/utils/DestinationDto";
 
 export default class DestinationServices {
     static async getDestinations (searchOptions: SearchOptions | null): Promise<AxiosResponse<Destination[]>> {
-        const params = new URLSearchParams((<SearchOptions>searchOptions) as Record<string, string>).toString();
-        let data = $api.get('/destination', {
+        return $api.get('/destination', {
             params: searchOptions
         });
-        return data;
     }
 
     static async createDestination (destination: DestinationDto): Promise<AxiosResponse<Destination>> {

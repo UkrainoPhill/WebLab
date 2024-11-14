@@ -1,5 +1,6 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import { ContinentEnum } from "./utils/ContinentEnum";
+import {CartEntity} from "../cart/cart.entity";
 
 @Entity()
 export class DestinationEntity {
@@ -19,4 +20,6 @@ export class DestinationEntity {
     last_updated: Date;
     @Column("varchar")
     image: string;
+    @OneToMany(() => CartEntity, cart => cart.destination)
+    cart: CartEntity[];
 }

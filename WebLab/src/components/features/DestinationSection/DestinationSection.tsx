@@ -6,25 +6,19 @@ import FeaturedDestination from "../../enities/FeaturedDestination/FeaturedDesti
 import {Link} from "react-router-dom";
 import DestinationServices from "../../../services/DestinationServices";
 import {Destination} from "../../assets/utils/Destination";
+import {RootState} from "../../../store";
+import {useSelector} from "react-redux";
 
 
 const DestinationSection  = () => {
     const [counter, setCounter] = useState<number>(4);
-    const [destinations, setDestinations] = useState<Destination[]>([]);
+    const {destination} = useSelector((state: RootState) => state.destinationReducer);
 
     const handleShowMore = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         setCounter(prevCounter => prevCounter + 4);
     }
 
-    const fetchDestinations = useCallback(async () => {
-        const { data } = await DestinationServices.getDestinations({});
-        setDestinations(data);
-    }, [])
-
-    useEffect(() => {
-        fetchDestinations();
-    }, [fetchDestinations]);
 
     return (
         <section className="destinationsSection">
@@ -33,7 +27,7 @@ const DestinationSection  = () => {
                 <Link to="/catalog">View all <img src={OrangeArrow} alt="arrow"/></Link>
             </div>
             <div className="elements">
-                {destinations.slice(0, counter).map((value, index) => (
+                {(destination || []).slice(0, counter).map((value, index) => (
                     <FeaturedDestination
                         key={index}
                         id={value.id}
@@ -45,7 +39,7 @@ const DestinationSection  = () => {
                 ))}
             </div>
             <div className={"showMore"}>
-                {counter < destinations.length && (
+                {counter < (destination || []).length && (
                     <FormButton name={"Show More"} onClick={handleShowMore}/>
                 )}
             </div>

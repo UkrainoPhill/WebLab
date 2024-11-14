@@ -13,8 +13,6 @@ import {DestinationDto} from "../../assets/utils/DestinationDto";
 interface CatalogSectionProps {
     onDelete: (id: string) => void,
     onUpdateModal: (destination: Destination) => void,
-    setSearchOptions: React.Dispatch<React.SetStateAction<{ search?: string, sort?: string, price?: number, rate?: number, continent?: number, id?: string }>>;
-    searchOptions: { search?: string; sort?: string; price?: number; rate?: number; continent?: number, id?: string } | null,
     filteredDestinations: Array<Destination>,
 }
 
@@ -22,9 +20,9 @@ const CatalogSection: FC<CatalogSectionProps> = (props) => {
     return (
         <section className="section-items">
             <div className="item-manager">
-                <SortManager setSearchOptions={props.setSearchOptions}/>
+                <SortManager/>
                 <hr/>
-                <FilterManager setSearchOptions={props.setSearchOptions}/>
+                <FilterManager/>
             </div>
             <div className="item-storage" id="item-storage">
                 {props.filteredDestinations.map((value, key) => (
