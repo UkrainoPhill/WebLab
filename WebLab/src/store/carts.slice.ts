@@ -5,7 +5,8 @@ import {Cart} from "../components/assets/utils/Cart";
 export const getCart = createAsyncThunk(
     'cart/getCart',
     async (thunkAPI) => {
-        return CartServices.getCarts();
+        const token = localStorage.getItem('token');
+        return CartServices.getUserAll(token ? token : '');
     }
 );
 

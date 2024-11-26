@@ -78,7 +78,7 @@ const ItemPage = () => {
             amount: amount,
             isHot: isHot,
         }
-        await CartServices.createCart(dto);
+        await CartServices.createCart(dto, localStorage.getItem('token') as string);
         alert("Created");
     }
 

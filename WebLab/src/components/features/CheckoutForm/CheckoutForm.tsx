@@ -1,87 +1,89 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage as FormikErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import './CheckoutForm.css';
-import ErrorMessage from '../ErrorForm/ErrorForm';
+import "./CheckoutForm.css";
+import {Formik, Form, Field} from "formik";
+import * as Yup from "yup";
 import {useNavigate} from "react-router-dom";
+import FormError from "../ErrorForm/FormError";
+import CartServices from "../../../services/CartService";
 
-const ErrorMessageWrapper = (props: any) =>
-    <ErrorMessage>{props.children}</ErrorMessage>;
-
-const CheckoutPage = () => {
+const CheckoutForm = () => {
     const navigate = useNavigate();
-    const validationSchema = Yup.object({
+    const checkoutSchema = Yup.object().shape({
         firstName: Yup.string()
-            .max(15, 'Must be 15 characters or less')
-            .required('First name is required'),
+            .min(2, 'Too Short first name!')
+            .max(50, 'Too Long first name!')
+            .required('Required first name'),
         lastName: Yup.string()
-            .max(20, 'Must be 20 characters or less')
-            .required('Last name is required'),
+            .min(2, 'Too Short last name!')
+            .max(50, 'Too Long last name!')
+            .required('Required last name'),
         email: Yup.string()
-            .email('Invalid email address')
-            .required('Email is required'),
-        phoneNumber: Yup.string()
-            .matches(/^[0-9]+$/, 'Must be only digits')
-            .min(10, 'Must be exactly 10 digits')
-            .max(10, 'Must be exactly 10 digits')
-            .required('Phone number is required'),
+            .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Invalid email")
+            .email('Invalid email')
+            .required('Required email'),
+        phone: Yup.string()
+            .matches(/^[0-9]+$/, 'Invalid phone number')
+            .min(10, 'Too Short phone number!')
+            .max(15, 'Too Long phone number!')
+            .required('Required phone number'),
         address: Yup.string()
-            .required('Address is required'),
+            .min(5, 'Too Short address!')
+            .max(50, 'Too Long address!')
+            .required('Required address'),
     });
 
-    const handleSubmit = (values: { firstName: string; lastName: string; email: string; phoneNumber: string; address: string }, { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }) => {
-        console.log('Form values:', values);
-        setSubmitting(false);
-        navigate('/success')
-    };
-
+    const handleSubmit = async () => {
+        navigate('/success');
+        const token = localStorage.getItem('token');
+        if (!token) return;
+        await CartServices.deleteAll(token);
+    }
     return (
-        <div className="checkout-page">
-            <h2>Checkout</h2>
-            <Formik
-                initialValues={{
-                    firstName: '',
-                    lastName: '',
-                    email: '',
-                    phoneNumber: '',
-                    address: '',
-                }}
-                validationSchema={validationSchema}
-                onSubmit={handleSubmit}
-            >
-                {({ isSubmitting }) => (
-                    <Form className={'checkout-form'}>
-                        <div className="form-group">
-                            <label htmlFor="firstName">First Name</label>
-                            <Field name="firstName" type="text" />
-                            <FormikErrorMessage name="firstName" component={ErrorMessageWrapper} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="lastName">Last Name</label>
-                            <Field name="lastName" type="text" />
-                            <FormikErrorMessage name="lastName" component={ErrorMessageWrapper} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Email</label>
-                            <Field name="email" type="email" />
-                            <FormikErrorMessage name="email" component={ErrorMessageWrapper} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="phoneNumber">Phone Number</label>
-                            <Field name="phoneNumber" type="text" />
-                            <FormikErrorMessage name="phoneNumber" component={ErrorMessageWrapper} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="address">Address</label>
-                            <Field name="address" type="text" />
-                            <FormikErrorMessage name="address" component={ErrorMessageWrapper} />
-                        </div>
-                        <button type="submit" disabled={isSubmitting}>Submit</button>
-                    </Form>
-                )}
-            </Formik>
-        </div>
+        <Formik
+            initialValues={{
+                firstName: '',
+                lastName: '',
+                email: '',
+                phone: '',
+                address: ''
+            }}
+            validationSchema={checkoutSchema}
+            onSubmit={(values, { resetForm}) => {
+                handleSubmit();
+                resetForm();
+            }}>
+            {({errors, touched}) => (
+                <Form className={"checkout-form"}>
+                    <div className={'form-field'}>
+                        <label htmlFor="firstName">First name</label>
+                        <Field name="firstName" type="text"/>
+                        {errors.firstName && touched.firstName && <FormError message={errors.firstName}/>}
+                    </div>
+                    <div className={'form-field'}>
+                        <label htmlFor="lastName">Last name</label>
+                        <Field name="lastName" type="text"/>
+                        {errors.lastName && touched.lastName && <FormError message={errors.lastName}/>}
+                    </div>
+                    <div className={'form-field'}>
+                        <label htmlFor="email">Email</label>
+                        <Field name="email" type="email"/>
+                        {errors.email && touched.email && <FormError message={errors.email}/>}
+                    </div>
+                    <div className={'form-field'}>
+                        <label htmlFor="phone">Phone</label>
+                        <Field name="phone" type="text"/>
+                        {errors.phone && touched.phone && <FormError message={errors.phone}/>}
+                    </div>
+                    <div className={'form-field'}>
+                        <label htmlFor="address">Address</label>
+                        <Field name="address" type="text"/>
+                        {errors.address && touched.address && <FormError message={errors.address}/>}
+                    </div>
+                    <button type="submit" className={'submit-button'}>Submit</button>
+                </Form>
+            )}
+        </Formik>
     );
 };
 
-export default CheckoutPage;
+export default CheckoutForm;

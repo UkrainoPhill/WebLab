@@ -48,7 +48,7 @@ const CartPage: FC = () => {
                 return;
             }
             setQuantity(item.amount + gap);
-            CartServices.updateCart(id, { ...item, amount: item.amount + gap, destinationId: item.destination.id }).then(() => dispatch(getCart()));
+            CartServices.updateCart(id, { ...item, amount: item.amount + gap, destinationId: item.destination.id }, localStorage.getItem('token') as string).then(() => dispatch(getCart()));
         }
         setQuantity(0);
     }

@@ -8,12 +8,12 @@ export default class CartServices {
         return $api.get('/cart');
     }
 
-    static async createCart (cart: CartDto): Promise<AxiosResponse<Cart>> {
-        return $api.post('/cart', cart);
+    static async createCart (cart: CartDto, token: string): Promise<AxiosResponse<Cart>> {
+        return $api.post(`/cart?token=${token}`, cart);
     }
 
-    static async updateCart (cart_id: string, cart: CartDto): Promise<AxiosResponse<void>> {
-        return $api.put(`/cart/${cart_id}`, cart);
+    static async updateCart (cart_id: string, cart: CartDto, token: string): Promise<AxiosResponse<void>> {
+        return $api.put(`/cart/${cart_id}?token=${token}`, cart);
     }
 
     static async deleteCart (card_id: string): Promise<AxiosResponse<void>> {
@@ -21,6 +21,14 @@ export default class CartServices {
     }
 
     static async getCartById (cart_id: string): Promise<AxiosResponse<Cart>>{
-        return $api.get(`/cart/${cart_id}`)
+        return $api.get(`/cart/${cart_id}`);
+    }
+
+    static async deleteAll (token: string): Promise<AxiosResponse<void>> {
+        return $api.delete(`/cart/user-carts?token=${token}`);
+    }
+
+    static async getUserAll (token: string): Promise<AxiosResponse<Cart[]>> {
+        return $api.get(`/cart/user-carts?token=${token}`);
     }
 }

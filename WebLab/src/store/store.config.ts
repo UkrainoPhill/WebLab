@@ -1,11 +1,13 @@
 import {configureStore} from '@reduxjs/toolkit';
 import destinationReducer from "./destination.slice";
 import cartReducer from "./carts.slice";
+import authReducer from './auth.slice';
 
 const store = configureStore({
     reducer: {
         destinationReducer,
-        cartReducer
+        cartReducer,
+        authReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

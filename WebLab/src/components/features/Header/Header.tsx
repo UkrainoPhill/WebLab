@@ -1,11 +1,17 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import logo from './images/logo.svg';
 import './Header.css';
 import PrimaryButton from '../../common/PrimaryButton/PrimaryButton'
 import SecondaryButton from "../../common/SecondaryButton/SecondaryButton";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import AuthService from "../../../services/UserService";
+import {useDispatch, useSelector} from "react-redux";
+import {logout, RootState} from "../../../store";
 
 const Header = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const auth = useSelector((state: RootState) => state.authReducer);
     const containerRef = useRef<HTMLDivElement>(null);
     const hamburgerRef = useRef<HTMLDivElement>(null);
     const navRef = useRef<HTMLElement>(null);
@@ -99,6 +105,12 @@ const Header = () => {
         };
     }, [checkScreenWidth]);
 
+    const handleLogout = () => {
+        dispatch(logout());
+        localStorage.removeItem("token");
+        navigate('register');
+    }
+
     return (
         <header>
             <div id="header" ref={headerDivRef}>
@@ -109,10 +121,13 @@ const Header = () => {
                         <li><Link to="/catalog">Destinations</Link></li>
                         <li><Link to="/cart">Cart</Link></li>
                     </ul>
-                    <div className="signButtons">
-                        <PrimaryButton link={"#"} name={"Login"}/>
-                        <SecondaryButton link={"#"} name={"Register"}/>
-                    </div>
+                    {!auth.isAuth && <div className="signButtons">
+                        <PrimaryButton link={"/login"} name={"Login"}/>
+                        <SecondaryButton link={"/register"} name={"Register"}/>
+                    </div>}
+                    {auth.isAuth &&
+                        <button className={"logout"} onClick={handleLogout}>Logout</button>
+                    }
                 </nav>
                 <div className="hamburger" ref={hamburgerRef} onClick={burgerExpand}>
                     <div id="line1" ref={line1Ref}></div>

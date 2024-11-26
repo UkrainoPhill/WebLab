@@ -6,8 +6,8 @@ import FeaturedDestination from "../../enities/FeaturedDestination/FeaturedDesti
 import {Link} from "react-router-dom";
 import DestinationServices from "../../../services/DestinationServices";
 import {Destination} from "../../assets/utils/Destination";
-import {RootState} from "../../../store";
-import {useSelector} from "react-redux";
+import {getDestinations, RootState} from "../../../store";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const DestinationSection  = () => {
@@ -19,7 +19,6 @@ const DestinationSection  = () => {
         setCounter(prevCounter => prevCounter + 4);
     }
 
-
     return (
         <section className="destinationsSection">
             <div className="destinationsTitle">
@@ -27,7 +26,7 @@ const DestinationSection  = () => {
                 <Link to="/catalog">View all <img src={OrangeArrow} alt="arrow"/></Link>
             </div>
             <div className="elements">
-                {(destination || []).slice(0, counter).map((value, index) => (
+                {destination?.slice(0, counter).map((value, index) => (
                     <FeaturedDestination
                         key={index}
                         id={value.id}

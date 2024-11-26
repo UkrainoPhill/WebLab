@@ -1,5 +1,6 @@
 import React from 'react';
 import './SecondaryButton.css';
+import {Link} from "react-router-dom";
 
 interface SecondaryButtonProps {
     link: string;
@@ -8,7 +9,7 @@ interface SecondaryButtonProps {
 
 const SecondaryButton : React.FC<SecondaryButtonProps> = (props) => {
     return (
-        <a className={"secondaryButton"} href={props.link}>{props.name}</a>
+        <Link className={"secondaryButton"} to={props.link}>{props.name}</Link>
     );
 };
 

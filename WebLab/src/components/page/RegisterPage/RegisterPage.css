@@ -1,0 +1,16 @@
+.register-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 74vh;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.register-page h1 {
+    font-size: 32px;
+    font-family: "Muli", sans-serif;
+    color: #333;
+    margin-bottom: 20px;
+}

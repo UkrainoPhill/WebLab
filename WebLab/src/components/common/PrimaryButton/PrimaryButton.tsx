@@ -1,5 +1,6 @@
 import React from 'react';
 import './PrimaryButton.css';
+import {Link} from "react-router-dom";
 
 
 interface PrimaryButtonProps {
@@ -9,7 +10,7 @@ interface PrimaryButtonProps {
 
 const PrimaryButton : React.FC<PrimaryButtonProps> = (props ) => {
     return (
-        <a className={"primaryButton"} href={props.link}>{props.name}</a>
+        <Link className={"primaryButton"} to={props.link}>{props.name}</Link>
     );
 };
 
